@@ -26,6 +26,8 @@ export default {
         position:fixed
         left:0
         top:0
+        background:#fff
+        z-index:10
         .m-header-wrapper
             margin:0 18px
             height:100%
