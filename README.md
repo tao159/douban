@@ -11,7 +11,7 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification  https://segmentfault.com/a/1190000016309645
+# build for production with minification  https://www.cnblogs.com/chengxiang123/p/9214641.html
 npm run build
 
 # build for production and view the bundle analyzer report

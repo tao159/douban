@@ -15,6 +15,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus">
+html,body
+  height:100%
 
 </style>
