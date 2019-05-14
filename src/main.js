@@ -5,10 +5,12 @@ import App from './App'
 import router from './router'
 import 'common/stylus/index.styl'
 import VueLazyLoad from 'vue-lazyload'
-
 Vue.config.productionTip = false
+
 Vue.use(VueLazyLoad, {
-        loading: 'common/images/lazy.png'
+        attempt: 1,
+        loading: require('common/images/lazy.png'),
+
     })
     /* eslint-disable no-new */
 new Vue({

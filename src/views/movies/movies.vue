@@ -1,11 +1,16 @@
 <template>
     <div class="movieW">
-        <h3 class="pageTitle">{{title}}</h3>
-        <items :list='itemList'></items>
+        <scroll>
+            <div class="movies-content">
+                <h3 class="pageTitle">{{title}}</h3>
+                <items :list='itemList'></items>
+            </div>
+        </scroll>
     </div>
 </template>
 
 <script>
+import scroll from '@/components/scroll/scroll'
 import {getMoviesList} from 'api/movies'
 import items from './items'
 export default {
@@ -25,6 +30,7 @@ export default {
         }
     },
     components:{
+        scroll,
         items
     },
     created(){
@@ -42,9 +48,10 @@ export default {
     width:100%
     top:47px
     bottom:0
-    .pageTitle
-        font-size:24px
-        color: #494949
-        margin:16.08px 0 6px 0
-        padding-left:4%
+    .movies-content
+        padding-top:20px
+        .pageTitle
+            font-size:24px
+            color: #494949
+            padding-left:4%
 </style>

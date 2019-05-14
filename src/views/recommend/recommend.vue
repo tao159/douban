@@ -8,7 +8,7 @@
                 <div class="classifyW">
                     <ul>
                         <li><router-link to="/movies">影院热映</router-link></li>
-                        <li><router-link to="">最受关注图书</router-link></li>
+                        <li><router-link to="/groups">豆瓣小组</router-link></li>
                         <li><router-link to="">豆瓣时间</router-link></li>
                         <li><router-link to="">使用豆瓣APP</router-link></li>
                     </ul>
@@ -59,7 +59,6 @@
 import {getRecommend} from 'api/recommend'
 import Loading from '@/components/loading/loading'
 import Scroll from '@/components/scroll/scroll'
-// import BScroll from 'better-scroll'
 export default {
     data(){
         return{

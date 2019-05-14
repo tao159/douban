@@ -3,7 +3,7 @@
         <router-link to="" class="flex-items" v-for="(item,index) in list" :key="index">
             <div class="imgW"><img v-lazy="'https://images.weserv.nl/?url='+item.cover.url" alt=""></div>
             <p>{{item.title}}</p>
-            <stars></stars>
+            <stars :rating='item.rating' imgwidth='11' fontsize='12'></stars>
         </router-link>
     </div>
 </template>
@@ -29,7 +29,7 @@ export default {
     flex-direction:row
     flex-wrap:wrap
     justify-content:space-between
-    padding: 0 4%
+    padding: 0 4% 40px
     .flex-items
         max-width:91.2px
         margin-top:8%
