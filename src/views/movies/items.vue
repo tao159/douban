@@ -1,6 +1,6 @@
 <template>
     <div class="moviesList">
-        <router-link to="" class="flex-items" v-for="(item,index) in list" :key="index">
+        <router-link  class="flex-items" v-for="(item,index) in list" :key="index" :to="'/movies/'+item.id">
             <div class="imgW"><img v-lazy="'https://images.weserv.nl/?url='+item.cover.url" alt=""></div>
             <p>{{item.title}}</p>
             <stars :rating='item.rating' imgwidth='11' fontsize='12'></stars>

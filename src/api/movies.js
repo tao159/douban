@@ -14,3 +14,13 @@ export function getMoviesList(page) {
 
     return jsonp(url, data, options)
 }
+
+
+export function getItemDetail(id) {
+    const url = `https://m.douban.com/rexxar/api/v2/elessar/subject/${id}`;
+    return jsonp(url, null, null)
+}
+//https://m.douban.com/rexxar/api/v2/elessar/subject/27074316  最前面的数据
+//https://m.douban.com/rexxar/api/v2/movie/27074316/interests  短评
+//https://m.douban.com/rexxar/api/v2/movie/27074316/credits  影人
+// https://m.douban.com/rexxar/api/v2/movie/27074316/forum_topics?start=0&count=5&ck=&for_mobile=1  讨论

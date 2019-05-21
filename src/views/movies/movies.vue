@@ -6,6 +6,9 @@
                 <items :list='itemList'></items>
             </div>
         </scroll>
+        <transition name="fade" made="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
@@ -23,7 +26,6 @@ export default {
     methods:{
         _getMoviesList(){
             getMoviesList(0).then(res=>{
-                console.log(res)
                 this.title=res.subject_collection.name
                 this.itemList=res.subject_collection_items
             })
@@ -48,6 +50,10 @@ export default {
     width:100%
     top:47px
     bottom:0
+    .fade-enter,.fade-leave-to
+        transform:translate3d(100%,0,0)
+    .fade-enter-active,.fade-leave-active
+        transition:all 0.3s
     .movies-content
         padding-top:20px
         .pageTitle

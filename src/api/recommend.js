@@ -14,3 +14,11 @@ export function getRecommend(page) {
 
     return jsonp(url, data, options)
 }
+
+
+//detail
+export function getRecommendDetail(id) {
+    const url = `https://m.douban.com/rexxar/api/v2/note/${id}`
+
+    return jsonp(url, null, null)
+}

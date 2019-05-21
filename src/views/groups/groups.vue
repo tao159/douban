@@ -3,6 +3,7 @@
         <scroll class="group-container">
             <list-item></list-item>
         </scroll>
+        <router-view></router-view>
     </div>
 </template>
 

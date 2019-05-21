@@ -9,13 +9,13 @@
                     <ul>
                         <li><router-link to="/movies">影院热映</router-link></li>
                         <li><router-link to="/groups">豆瓣小组</router-link></li>
-                        <li><router-link to="">豆瓣时间</router-link></li>
+                        <li><router-link to="/books">最受关注图书</router-link></li>
                         <li><router-link to="">使用豆瓣APP</router-link></li>
                     </ul>
                 </div>
                 <loading v-if="!recommendList.length"></loading>
                 <div class="recommend-content">
-                    <a href="" v-for="(item,index) in recommendList" :key="index">
+                    <a v-for="(item,index) in recommendList" :href="'https://m.douban.com/note/'+item.id+'/'" :key="index">
                         <div class="item-list" v-if="item.imgArr.length==3">
                             <div class="imgWrapper">
                                 <div class="leftItem" :style="{backgroundImage:'url('+item.imgArr[0].img+')'}">
@@ -49,9 +49,11 @@
                     </a>
                     <loading iWidth='20' :type='2' v-show=flag></loading>
                 </div> 
-                
             </div>
         </scroll>
+        <transition name="fade" made="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
@@ -64,7 +66,8 @@ export default {
         return{
             recommendList:[],
             page:0,
-            flag:false
+            flag:false,
+            url:'https://m.douban.com/note/'
         }
     },
     methods:{
@@ -117,37 +120,6 @@ export default {
                 _this.flag=false
             }
         }
-        // _initScroll(){
-        //     if (!this.scroll){
-        //         var _this=this
-        //         this.$nextTick(() => {
-        //             this.scroll=new BScroll(this.$refs.recommendW,{
-        //                 probeType:1,
-        //                 click:true
-        //             })
-        //             // this.scroll.on('scroll',(pos)=>{
-        //             //     if(pos.y>30){
-        //             //         this.refreshMsg='释放立即刷新'
-        //             //     }
-        //             // })
-        //             this.scroll.on('touchEnd',pos=>{
-        //                 // if(pos.y>30){
-        //                 //      _this.refreshMsg='下拉刷新'
-        //                 //     _this.refreshAlert('刷新成功')
-        //                 //     _this.scroll.refresh()
-        //                 // }
-        //                 if(pos.y<(this.scroll.maxScrollY-30)){
-        //                     this.flag=true
-        //                     setTimeout(()=>{
-        //                         _this.flag=false
-        //                         _this._recommend()
-        //                         _this.scroll.refresh()
-        //                     },200000)
-        //                 }
-        //             })
-        //         })
-        //     }
-        // }
     },
     components:{
         Loading,
@@ -183,6 +155,10 @@ export default {
         width:100%
         top:47px
         bottom:0
+        .fade-enter,.fade-leave-to
+            transform:translate3d(100%,0,0)
+        .fade-enter-active,.fade-leave-active
+           transition:all 0.3s
         .recommend-container
             height:100%
             overflow:hidden
